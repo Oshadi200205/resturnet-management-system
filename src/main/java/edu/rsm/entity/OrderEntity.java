@@ -1,5 +1,6 @@
 package edu.rsm.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import edu.rsm.enums.OrderStatus;
 import jakarta.persistence.*;
@@ -31,7 +32,12 @@ public class OrderEntity {
     private ZonedDateTime updateAt;
 
     @OneToMany(mappedBy = "orderEntity",cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("orderEntity-orderItemList")
     private List<OrderItemEntity> orderItemList;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_session_id")
+    @JsonBackReference
+    private CustomerSessionEntity customerSession;
 
 }

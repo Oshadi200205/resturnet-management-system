@@ -28,7 +28,7 @@ public class MenuCategoryEntity {
 
     @ManyToOne
     @JoinColumn(name = "fk_restaurant_id")
-    @JsonBackReference
-    private RestaurantEntity restaurant;
+    @JsonBackReference("menuCategoryList-restaurant2")
+    private RestaurantEntity restaurant2;
 
 }
