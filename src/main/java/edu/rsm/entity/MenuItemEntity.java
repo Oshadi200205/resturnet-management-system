@@ -35,7 +35,7 @@ public class MenuItemEntity {
     private MenuCategoryEntity menuCategory;
 
     @OneToMany(mappedBy = "menuItemEntity",cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("menuItemEntity-orderItemList")
     private List<OrderItemEntity> orderItemList;
 
 }

@@ -29,16 +29,16 @@ public class RestaurantEntity {
 
     private String location;
 
-    @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "restaurant2",cascade = CascadeType.ALL)
+    @JsonManagedReference("menuCategoryList-restaurant2")
     private List<MenuCategoryEntity> menuCategoryList;
 
-    @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "restaurant1",cascade = CascadeType.ALL)
+    @JsonManagedReference("staffList-restaurant1")
     private List<StaffEntity> staffList;
 
     @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("tableList-restaurant")
     private List<TableEntity> tableList;
 
 }

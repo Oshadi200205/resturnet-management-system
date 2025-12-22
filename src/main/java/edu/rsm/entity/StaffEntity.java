@@ -23,6 +23,6 @@ public class StaffEntity {
 
     @ManyToOne
     @JoinColumn(name = "fk_restaurant_id")
-    @JsonBackReference
-    private RestaurantEntity restaurant;
+    @JsonBackReference("staffList-restaurant1")
+    private RestaurantEntity restaurant1;
 }

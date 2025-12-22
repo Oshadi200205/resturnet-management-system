@@ -23,12 +23,12 @@ public class OrderItemEntity {
 
     @ManyToOne
     @JoinColumn(name = "fk_order_id")
-    @JsonBackReference
+    @JsonBackReference("orderEntity-orderItemList")
     private OrderEntity orderEntity;
 
     @ManyToOne
     @JoinColumn(name = "fk_menuItem_id")
-    @JsonBackReference
+    @JsonBackReference("menuItemEntity-orderItemList")
     private MenuItemEntity menuItemEntity;
 
 }
