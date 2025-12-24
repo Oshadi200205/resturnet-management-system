@@ -2,6 +2,7 @@ package edu.rsm.service;
 
 
 import edu.rsm.dto.Order;
+import edu.rsm.enums.OrderStatus;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface OrderService {
     Order getById(String orderId);
 
     void updateById(String orderId, Order order);
+
+    void updateOrderStatus(String orderId, OrderStatus status);
 }

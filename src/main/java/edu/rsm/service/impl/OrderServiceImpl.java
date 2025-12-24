@@ -3,6 +3,7 @@ package edu.rsm.service.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.rsm.dto.Order;
 import edu.rsm.entity.OrderEntity;
+import edu.rsm.enums.OrderStatus;
 import edu.rsm.repository.OrderRepository;
 import edu.rsm.service.OrderService;
 import jakarta.persistence.EntityNotFoundException;
@@ -50,6 +51,14 @@ public class OrderServiceImpl implements OrderService {
         toSave.setId(orderId);
         orderRepository.save(toSave);
 
+    }
+
+    @Override
+    public void updateOrderStatus(String orderId, OrderStatus status) {
+        OrderEntity orderEntity = orderRepository.findById(orderId)
+                .orElseThrow();
+        orderEntity.setStatus(status);
+        orderRepository.save(orderEntity);
     }
 
     private OrderEntity getEntity(String id){
